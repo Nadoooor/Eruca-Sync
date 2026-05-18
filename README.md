@@ -47,6 +47,16 @@ The light mechanism is the most highlighted actuator here. It is composed of two
 ![alt text](Photos/FINAL_b.png)<br><br>
 
 Here you are the [Onshape Docs](https://cad.onshape.com/documents/9a096ebca3b52eda8b421bd5/w/291a79fda487721e4172dde6/e/f2d4edb63e0c7f47e937ec7d)
-------------------
+<br>
+
+## How to build the Code:
+1. Install PIO (PlatformIO) and clone the repo
+2. Open the Eruca-Sync-Code folder which has the source code in platformIO vscode.
+3. Do what ever you want, edit, add, remove, etc.
+4. Just click the check mark down there in vscode to build the code into a .bin and .elf files.
+5. Or just click the arrow icon while connecting the esp to the PC/Laptop to directly compile and upload the code.
+6. Enjoy ;)
+
+-----------------
 
 # Made with ❤️ By Nadooor
