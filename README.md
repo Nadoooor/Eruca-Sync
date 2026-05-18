@@ -46,7 +46,7 @@ The light mechanism is the most highlighted actuator here. It is composed of two
 ![alt text](Photos/COOL.png)<br>
 ![alt text](Photos/FINAL_b.png)<br><br>
 
-Here you are the (Onshape Docs)[https://cad.onshape.com/documents/9a096ebca3b52eda8b421bd5/w/291a79fda487721e4172dde6/e/f2d4edb63e0c7f47e937ec7d]
+Here you are the [Onshape Docs](https://cad.onshape.com/documents/9a096ebca3b52eda8b421bd5/w/291a79fda487721e4172dde6/e/f2d4edb63e0c7f47e937ec7d)
 ------------------
 
 # Made with ❤️ By Nadooor
