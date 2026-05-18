@@ -1,0 +1,195 @@
+(footprint "MOSFET_KIT"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -13 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "2eafbbe7-6804-455e-9711-6295ea46d0db")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "MOSFET_KIT"
+		(at 0 -11.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "18f20ab0-563f-4eaa-9e36-cbc06131f919")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b89aee2b-4921-4431-8293-4b8a93cafb7d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6c40f601-790c-485f-9e5c-014989b21d88")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -17 -8.5)
+		(end 16.5 8.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "5c75a218-23bc-4d1e-8b95-38b00561ad8e")
+	)
+	(fp_rect
+		(start -15.5 -8.5)
+		(end -5.5 -1.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "ff50bc84-d724-450f-bfaa-278a7fd4ec45")
+	)
+	(fp_rect
+		(start -15.5 1.25)
+		(end -5.5 8.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "9b48a960-e7b0-4f59-b40e-326497df52b7")
+	)
+	(fp_rect
+		(start 12 -4.5)
+		(end 16.5 4.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "d6ca1d37-b19a-45d0-95f2-a74b3d51bac4")
+	)
+	(fp_text user "IN"
+		(at -9 3.5 180)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "6910c998-39db-4d30-a6f1-80d74dcaedfd")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "GND"
+		(at 13.25 -1.75 90)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "c3cf6023-afc5-4dc0-8871-4d98f6fa5332")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "OUT"
+		(at -13.5 -3.75 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "c5d942c4-0898-46de-8722-6de66011efd0")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "PWM"
+		(at 13.25 3.25 90)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "ec4bbbec-adad-4ef2-a0b6-78bba3be2c1c")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 -10 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "c6fb7773-97c0-426a-aad4-b3460e1fdaea")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 15 -2.5 270)
+		(size 1.53 1.53)
+		(drill 1.02)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "8ae46b22-500f-4df2-b392-d0a0c899fc6a")
+	)
+	(pad "2" thru_hole circle
+		(at 15 2.5)
+		(size 1.53 1.53)
+		(drill 1.02)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "3510b944-123b-4fa2-a069-002002b2920e")
+	)
+	(embedded_fonts no)
+	(model "C:/Users/sayed/Downloads/PWM Mosfet Modul 400W.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
