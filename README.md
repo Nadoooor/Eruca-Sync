@@ -36,6 +36,10 @@ The light mechanism is the most highlighted actuator here. It is composed of two
 
 ![alt text](Photos/3d%20PCB.png)
 
+### Schematic:
+
+![alt text](Photos/Schematic.png)
+
 ### 3D desing:
 
 ![alt text](Photos/FINAL-f.png)<br>
