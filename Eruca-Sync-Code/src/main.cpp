@@ -36,6 +36,14 @@ float currentTemp = 0;
 float currentMoist = 0;
 float currentLux = 0;
 
+bool tempStatus = false;
+bool moistStatus = false;
+bool lightStatus = false;
+
+enum SYSMOD{MENU, ARGULA, SPINACH};
+
+SYSMOD sysmod = MENU;
+
 //Parameters  and limits for the feedback system
 
 int mode = 0; //0 for spinach, 1 for argula
@@ -107,6 +115,61 @@ float measuremoist(){
     return calibed_soil(analogRead(Soil_pin));
 }
 
+
+void statics(){
+    tft.fillScreen(TFT_BLACK);
+    tft.fillRect(0, 0, 320, 35, TFT_NAVY);
+    tft.setTextColor(TFT_WHITE);
+    tft.drawCentreString("Eruca Sync", 160, 8, 2);
+    tft.drawFastHLine(0, 85, 300, TFT_SILVER);
+    tft.drawFastHLine(0, 140, 300, TFT_SILVER);
+
+    tft.drawFastVLine(160, 45, 145, TFT_SILVER);
+    tft.setTextColor(TFT_WHITE);
+    tft.drawString("TEMP:",15, 45, 2);
+    tft.drawString("MOIST:", 170, 45, 2);
+    tft.drawString("LUX:", 15, 95, 2);
+    tft.drawString("ACTUATORS:", 170, 95, 2);
+}
+
+
+void menu(){
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextColor(TFT_WHITE);
+    tft.drawCentreString("Select Plant", 160, 40, 4);
+
+
+    tft.fillRect(20, 100, 130, 80, TFT_DARKGREEN);
+    tft.fillRect(20,100,130,80, TFT_WHITE);
+    tft.drawCentreString("Argula", 85, 130, 2);
+
+    tft.fillRect(170, 100, 130, 80, TFT_MAROON);
+    tft.fillRect(170,100,130,80, TFT_WHITE);  
+    tft.drawCentreString("Spinach", 235, 130, 2);  
+
+}
+
+
+void refreash(){
+    tft.setTextColor(TFT_CYAN, TFT_BLACK);
+    tft.drawString(String(currentTemp, 1) + " C", 15, 60, 4);
+    tft.setTextColor(TFT_BLUE, TFT_BLACK);
+    tft.drawString(String(currentMoist, 1) + " %", 170, 60, 4);
+    tft.setTextColor(TFT_YELLOW, TFT_BLACK);
+    tft.drawString(String(currentLux, 0) + " lx", 15, 110, 4);
+
+    tft.setTextSize(1);
+    tft.setTextColor(tempStatus ? TFT_GREEN : TFT_RED, TFT_BLACK);
+    tft.drawString(tempStatus ? "Cooling: ON" : "Cooling: OFF", 170, 115, 2);
+    tft.setTextColor(moistStatus ? TFT_GREEN : TFT_RED, TFT_BLACK);
+    tft.drawString(moistStatus ? "Irrigation: ON" : "Irrigation: OFF", 170, 135, 2);
+    tft.setTextColor(lightStatus ? TFT_GREEN : TFT_RED, TFT_BLACK); 
+    tft.drawString(lightStatus ? "Shading: ON" : "Shading: OFF", 170, 155, 2);
+
+}
+
+
+
 void logic(){
     //temp_logic
     if (mode == 1){
@@ -140,35 +203,42 @@ if(currentTemp > max_temp){
     analogWrite(FAN1_pin, 255);
     analogWrite(FAN2_pin, 255);
     analogWrite(Peliter_pin, 255);
+    tempStatus = true;
     
 }
 else if (currentTemp < min_temp){
     analogWrite(FAN1_pin, 0);
     analogWrite(FAN2_pin, 0);
     analogWrite(Peliter_pin, 0);
+    tempStatus = false;
 } else {
     Serial.println("There is a problem with the temperature sensor");
 }
 
 
 if (currentMoist < 50 && currentMoist > 10){
-    
+    moistStatus = true;
     analogWrite(PUMP_pin, 255);
     delay(irrigation_time);
     analogWrite(PUMP_pin, 0);
-
+    moistStatus = false;
 } else if (currentMoist <= 10){
     analogWrite(PUMP_pin, 0);
+    moistStatus = false;
 } else if (currentMoist >= 85){
     analogWrite(PUMP_pin, 0);
+    moistStatus = false;
 }
 
 if (currentLux < min_lux && currentLux >= 0){
     if(currentlevel > 0){
+        lightStatus = true;
         ServoL.write(45); ServoR.write(135);
         currentlevel--;
         delay(9500);
         ServoL.write(90); ServoR.write(90);
+        lightStatus = false;
+    
     } else if (currentlevel == 0){
         for (int i = 0; i < 48; i++){
             pixels.setPixelColor(i, pixels.Color(128, 0, 32));
@@ -183,12 +253,15 @@ if (currentLux < min_lux && currentLux >= 0){
             pixels.show();
             delay(50);
         }
+        lightStatus = true;
     ServoL.write(135); ServoR.write(45);
     currentlevel++;
     delay(9500);
     ServoL.write(90); ServoR.write(90);
+    lightStatus = false;
 } else {
     ServoL.write(90); ServoR.write(90);
+    lightStatus = false;
 }
 
 
@@ -214,10 +287,40 @@ void setup() {
     Wire.begin(I2C_SDA, I2C_SCL, 100000);
     am.begin();
     lightMeter.begin(BH1750::CONTINUOUS_HIGH_RES_MODE, 0x23, &Wire);
-
+    menu();
 }
 
 void loop() {
+    if (sysmod == MENU){
+        TSPoint p = ts.getPoint();
+
+        pinMode(XP, OUTPUT);
+        pinMode(YP, OUTPUT);
+
+        if (p.z > ts.pressureThreshhold){
+
+            int16_t x_calibed = map(p.x, 390, 3683, 0, 320);
+            int16_t y_calibed = map(p.y, 3408, 471, 0, 240);
+
+            if (x_calibed > 20 && x_calibed < 150 && y_calibed > 100 && y_calibed < 180){
+                mode = 1;
+                sysmod = ARGULA;
+                tft.fillScreen(TFT_BLACK);
+                statics();
+            } else if (x_calibed > 170 && x_calibed < 300 && y_calibed > 100 && y_calibed < 180){
+                mode = 0;
+                sysmod = SPINACH;
+                tft.fillScreen(TFT_BLACK);
+                statics();
+            }
+
+        }
+
+
+
+
+
+    }else {
     float Stemp = 0;
     float Slux = 0;
     float Smoist = 0;
@@ -231,8 +334,10 @@ void loop() {
     currentTemp = Stemp/3;
     currentLux = Slux/3;
     currentMoist = Smoist/3;
+    refreash();
+
 
     logic();
-
+    }
 }
 
