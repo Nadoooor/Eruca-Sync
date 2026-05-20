@@ -6,7 +6,7 @@
 
 --------
 ## Description:
-A smart greenhouse with a closed-loop feedback system that can bring stability automaticly to the system by itself. It focuses green leafy plants and on three parameters. <br>
+A smart greenhouse with a closed-loop feedback system that can bring stability automatically to the system by itself. It focuses on green leafy plants and on three parameters. <br>
 
 * Light intensity
 * Soil moisture
@@ -14,7 +14,8 @@ A smart greenhouse with a closed-loop feedback system that can bring stability a
 
 It has actuators that are responible of making the anti-changes that reverse any changes that occur in the environment, like temperature rise, soil drought, and over-light on the green leafy plants.<br>
 
-I made this because there are plants that I really want to try, but I can't plant them in my home because there is no suitable environment for it. So, the project will provide these plants with their suitable environment. 
+### Why I am making this:
+I made this because there are plants that I really want to try, but I can't plant them in my home because there is no suitable environment for them. So, the project will provide these plants with their suitable environment. For Example, around my home, I can't plant Eruca (Arugula) because of the direct sunlight and the high temperature. I really want to try planting Arugula, so I thought about how to plant it around my home, but with minimal effort. So, I got this idea to make a self-balancing environment for the Arugula or any plant species. 
 
 ### Highlight
 The light mechanism is the most highlighted actuator here. It is composed of two servos and two pips, which rotate with each other to change different light transmissivity layers to increase the light intensity coming from the sun or decrease it.
@@ -24,7 +25,7 @@ The light mechanism is the most highlighted actuator here. It is composed of two
 1. First, just plug the power plug into any 220V power source. 
 2. The screen will light up, asking which plant species you are planting. 
 3. Choose the plant species, and that's it.
-4. Leave it on its own, it will show you the real-time parameter readings as it is waiting for any changes to power up the actuators.
+4. Leave it on its own; it will show you the real-time parameter readings as it is waiting for any changes to power up the actuators.
 
 ## Some photos of the project:
 
