@@ -86,4 +86,42 @@ So, here we are building this. Well, this one was so funny. at first i we was tr
 
 We decided to make it look more prettier. We cut the wooden small recrangles whlie they are on top of each other so we can cut them with the same angles and shape the arc as an smooth arch, not a wooden pieces placed on top of each other.  
 
-# <You will talk about the arcs' columns.>
+Well, now we need to talk about the Arcs' columns which will have the arcs and the transparent bags mechanism above it. 
+
+Ahh, This one was kinda weird. First i got the Wooden columns as usuall from destroying the old drawers. But when we look on the technique i was using to rainforce the columns with the nails. Well, i can't do this here, this technique needs me to grap the column with my hand and put it in the required place and then using the nails and a hammer. i can drive the nail into the base from the other side through the base and to the column. but here, Well the other side is to far, i can't use regular sized nails and also the tall nails can broke the wood. 
+
+So, i got a very cool idea. Well first i grapped the columns. and using the hammer i drived the nail into the down side of the column separatly without the soil drawer. i drived the nail a lil bit which can make a hole that the nail can be placed into. 
+
+After that, i extracted the nail, and then cut its head, and then i redrived the head side of the nail into the hole i made. and after that i grapped the column to its place on the drawer, and finally i drived the whole column using the hammer as it is work as the nail's head. 
+
+Repeated that with the remaining 3 columns and yeah. i got this columns solid and well placed with that cool idea. I loved it so much tbh it was so funny.
+
+After this great step, i got the servo motors and connected the PVC pips using MDF glue and Very small nails into the + shaped-gear of the servo but at first i used the servo screw to to connect the gear into the servo itself. because the screw can only be driven from the inside of the PVC pip. and it is very tall for any of my screw drivers. 
+
+After that, i decided to make the very tall sheet of different transparent layers that will control the light intensity of the sun. well, we took the measurement of the pip's length and with a marker i drew the same length many times in parallel along each layer of bags so i can cut them and finally connect them with each other to make a chain of bags. and each ends should be connected to the PCV pip on eacch servo.
+
+But i was very tired. So, let's call it a day and sleep the same 4-6 hours and continue work tomorrow.
+
+
+<br>
+
+## Day 4
+
+- Date: 4/4/2026
+- Total hours spent: 7 Hours
+
+YAY, a lot of things are finished and i yeah i need this time to focus on making the circuit and test it up. 
+
+
+My head hurts a lil and i didn't sleep well but i must finish this :|
+
+Ok, started by testing up the circuit. Well, the most hard part was the Screen, it was so exhasting as it has many pins and any small fault will make me search a lot about where it is. So, i made it very carefully and used small wires so it don't appear so overwhelming with the regular jumpers. 
+
+Also, yeah i used a regular breadboard because the PCB will take time and i don't have it. it is 4 days till my exhibition and it must be fully functionable and tested. So, i used two breadboards and removed one power line from one of them and connected both of them with each other so they can perfectly size the Weird ESP32 s3 width and the TFT touch screen width. 
+
+After that i wired all the pins with the ESP32 s3 and found that the display doesn't want to turn on. So, i search a lot why even the backlight doesn't want to turn on even if the backlight uses 3v3 and don't need a 5v0. didn't find good info on the internet tbh so i just grapped the display myself and traced it with my eyes. And yeah i found the very stubid problem. 
+
+Yeah the display is using a voltage regulator. And this voltage regulator must take the 5v0 and convert it into 3v3 and it can't just take 3v3 and give 3v3 So, i kept searching if i can find any jumper pads on the TFT board but i didn't find. It seems that my TFT model doesn't come with these pads. So, for now i just used an external 5v0 from the arduino and also connected all the GNDs and just tried the TFT with the ESP32 s3 to make sure it works. and it worked. 
+
+When i connect everything in the Control panal in the prototype i can just take 5v0 from the Power supply unit and give it to the TFT screen and just take 3v3 from the same unit to the other components. Iam using a PC power supply, so this helps so much in getting different voltages without the need of step ups or step downs. 
+
