@@ -2,7 +2,7 @@
 
 --------------------------
 
-### Total Build Hours: 54.5 Hours
+### Total Build Hours: 56 Hours
 
 <br>
 
